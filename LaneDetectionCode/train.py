@@ -63,6 +63,7 @@ def get_parameters(model, layer_name):
 
 
 if __name__ == '__main__':
+    print("a")
     args = args_setting()
     torch.manual_seed(args.seed)
     use_cuda = args.cuda and torch.cuda.is_available()

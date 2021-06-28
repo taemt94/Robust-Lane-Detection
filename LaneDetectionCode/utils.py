@@ -19,7 +19,9 @@ class double_conv(nn.Module):
         )
 
     def forward(self, x):
+        print(x.shape)
         x = self.conv(x)
+        print(x.shape)
         return x
 
 
@@ -249,7 +251,7 @@ class ConvLSTM(nn.Module):
         return param
 
 
-
-
-
+if __name__=="__main__":
+    DC = double_conv(64)
+    x = torch.
 
