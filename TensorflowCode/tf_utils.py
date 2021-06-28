@@ -61,6 +61,8 @@ class up(tf.keras.layers.Layer):
         # print(x_dec.shape)
         diffX = x_dec.shape[1] - x_enc.shape[1]
         diffY = x_dec.shape[2] - x_enc.shape[2]
+        ### paddings 설명 추가
+        ### 홀수 입력 시에는 안되는 것 아닌지?
         paddings = [[0, 0],
                     [diffX // 2, int(diffX / 2)],
                     [diffY // 2, int(diffY / 2)],

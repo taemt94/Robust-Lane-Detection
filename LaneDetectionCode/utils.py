@@ -63,6 +63,7 @@ class up(nn.Module):
 
     def forward(self, x1, x2):
         x1 = self.up(x1)
+        ### encoder의 feature map과 decoder의 feature map을 모두 사용하기 위해 둘의 shape를 맞춰주는 코드
         diffX = x1.size()[2] - x2.size()[2]
         diffY = x1.size()[3] - x2.size()[3]
         x2 = F.pad(x2, (diffX // 2, int(diffX / 2),
