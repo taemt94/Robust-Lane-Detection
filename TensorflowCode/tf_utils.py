@@ -61,8 +61,6 @@ class up(tf.keras.layers.Layer):
         # print(x_dec.shape)
         diffX = x_dec.shape[1] - x_enc.shape[1]
         diffY = x_dec.shape[2] - x_enc.shape[2]
-        ### paddings 설명 추가
-        ### 홀수 입력 시에는 안되는 것 아닌지?
         paddings = [[0, 0],
                     [diffX // 2, int(diffX / 2)],
                     [diffY // 2, int(diffY / 2)],
@@ -74,4 +72,13 @@ class up(tf.keras.layers.Layer):
         x = self.conv(x)
         # print(x.shape)
         return x
+class outconv(tf.keras.layers.Layer):
+    def __init__(self, out_ch):
+        super(outconv, self).__init__()
+        self.conv = Conv2D(filters=out_ch, kernel_size=1)
 
+    def call(self, x):
+        # print("Shape before conv:", x.shape)
+        x = self.conv(x)
+        # print("Shape after  conv:", x.shape)
+        return x
