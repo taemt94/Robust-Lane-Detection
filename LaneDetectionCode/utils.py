@@ -253,6 +253,6 @@ class ConvLSTM(nn.Module):
 
 
 if __name__=="__main__":
-    DC = double_conv(64)
-    x = torch.
+    # DC = double_conv(64)
+    # x = torch.
 
