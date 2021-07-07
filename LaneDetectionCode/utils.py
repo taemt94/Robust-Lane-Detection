@@ -215,8 +215,6 @@ class ConvLSTM(nn.Module):
             for t in range(seq_len):
                 h, c = self.cell_list[layer_idx](input_tensor=cur_layer_input[:, t, :, :, :],
                                                  cur_state=[h, c])
-
-
                 output_inner.append(h)
 
             layer_output = torch.stack(output_inner, dim=1)
@@ -250,9 +248,3 @@ class ConvLSTM(nn.Module):
         if not isinstance(param, list):
             param = [param] * num_layers
         return param
-
-
-if __name__=="__main__":
-    # DC = double_conv(64)
-    # x = torch.
-
